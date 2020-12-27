@@ -6,14 +6,14 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * å·¥å…·ç±»
- * ä¹‹æ‰€ä»¥ä¸ä½¿ç”¨ (int)(Math.random()*bounds)æ˜¯å› ä¸ºåœ¨æŸäº›æƒ…å†µä¸­
- * ä¼šæœ‰ä¸€äº›å€¼éš¾ä»¥å–åˆ°,æ‰€ä»¥ä½¿ç”¨Randomç±»ç›´æ¥ç”Ÿæˆçº¿æ€§åŒä½™ç®—æ³•çš„ä¼ªéšæœºæ•°
+ * ¹¤¾ßÀà
+ * Ö®ËùÒÔ²»Ê¹ÓÃ (int)(Math.random()*bounds)ÊÇÒòÎªÔÚÄ³Ğ©Çé¿öÖĞ
+ * »áÓĞÒ»Ğ©ÖµÄÑÒÔÈ¡µ½,ËùÒÔÊ¹ÓÃRandomÀàÖ±½ÓÉú³ÉÏßĞÔÍ¬ÓàËã·¨µÄÎ±Ëæ»úÊı
  */
 public class Util {
 	private static Random random;
 	/**
-	 * å½“å‰éšæœºæ•°çš„ç§å­
+	 * µ±Ç°Ëæ»úÊıµÄÖÖ×Ó
 	 */
 	private static long randomSeed;
 
@@ -23,12 +23,12 @@ public class Util {
 	}
 
 	/**
-	 * è¿”å›ä¸€ä¸ªä¼ªéšæœºæ•°ï¼Œå®ƒæ˜¯å–è‡ªæ­¤éšæœºæ•°ç”Ÿæˆå™¨åºåˆ—çš„ã€åœ¨ 0ï¼ˆåŒ…æ‹¬ï¼‰
-	 * å’ŒæŒ‡å®šå€¼ï¼ˆä¸åŒ…æ‹¬ï¼‰ä¹‹é—´å‡åŒ€åˆ†å¸ƒçš„ int å€¼ã€‚
-	 * æ­¤æ–¹æ³•è‡³å°‘2ç§’æ›´æ–°ä¸€æ¬¡éšæœºæ•°å‘ç”Ÿå™¨çš„ç§å­
+	 * ·µ»ØÒ»¸öÎ±Ëæ»úÊı£¬ËüÊÇÈ¡×Ô´ËËæ»úÊıÉú³ÉÆ÷ĞòÁĞµÄ¡¢ÔÚ 0£¨°üÀ¨£©
+	 * ºÍÖ¸¶¨Öµ£¨²»°üÀ¨£©Ö®¼ä¾ùÔÈ·Ö²¼µÄ int Öµ¡£
+	 * ´Ë·½·¨ÖÁÉÙ2Ãë¸üĞÂÒ»´ÎËæ»úÊı·¢ÉúÆ÷µÄÖÖ×Ó
 	 *
-	 * @param bounds èŒƒå›´
-	 * @return è¿”å›[0, bounds)çš„ä¼ªéšæœºæ•´æ•°
+	 * @param bounds ·¶Î§
+	 * @return ·µ»Ø[0, bounds)µÄÎ±Ëæ»úÕûÊı
 	 */
 	public static int random(int bounds) {
 //		random.setSeed(System.currentTimeMillis());
@@ -39,11 +39,11 @@ public class Util {
 	}
 
 	/**
-	 * è¿”å›ä¸€ä¸ªèŒƒå›´çš„éšæœºæ•°
+	 * ·µ»ØÒ»¸ö·¶Î§µÄËæ»úÊı
 	 *
-	 * @param start  ä»startå¼€å§‹
-	 * @param bounds èŒƒå›´
-	 * @return è¿”å›[start, bounds)èŒƒå›´å†…çš„ä¼ªéšæœºæ•´æ•°
+	 * @param start  ´Óstart¿ªÊ¼
+	 * @param bounds ·¶Î§
+	 * @return ·µ»Ø[start, bounds)·¶Î§ÄÚµÄÎ±Ëæ»úÕûÊı
 	 */
 	public static int random(int start, int bounds) {
 		return random(bounds - start) + start;
@@ -51,11 +51,11 @@ public class Util {
 
 
 	/**
-	 * æ­¤æ–¹æ³•ç›´æ¥éšæœºç”Ÿæˆä¸€ä¸ªPointå¯¹è±¡,å…¶ä¸­Pointå¯¹è±¡çš„X,Yå–å€¼ä¸º[0,XBounds),[0,YBounds)
+	 * ´Ë·½·¨Ö±½ÓËæ»úÉú³ÉÒ»¸öPoint¶ÔÏó,ÆäÖĞPoint¶ÔÏóµÄX,YÈ¡ÖµÎª[0,XBounds),[0,YBounds)
 	 *
-	 * @param XBounds Xçš„å–å€¼èŒƒå›´,ä»0å¼€å§‹
-	 * @param YBounds Yçš„å–å€¼èŒƒå›´,ä»0å¼€å§‹
-	 * @return è¿”å›ä¸€ä¸ªéšæœºç”Ÿæˆçš„Pointå¯¹è±¡, å…¶ä¸­Pointå¯¹è±¡çš„X, Yå–å€¼ä¸º[0, XBounds),[0,YBounds)
+	 * @param XBounds XµÄÈ¡Öµ·¶Î§,´Ó0¿ªÊ¼
+	 * @param YBounds YµÄÈ¡Öµ·¶Î§,´Ó0¿ªÊ¼
+	 * @return ·µ»ØÒ»¸öËæ»úÉú³ÉµÄPoint¶ÔÏó, ÆäÖĞPoint¶ÔÏóµÄX, YÈ¡ÖµÎª[0, XBounds),[0,YBounds)
 	 */
 	public static Point randomPoint(int XBounds, int YBounds) {
 		return new Point(random(XBounds), random(YBounds));

@@ -3,49 +3,75 @@ package cf.vbnm.gui;
 import java.awt.*;
 
 /**
- * è¿™ä¸ªç±»å­˜å‚¨ç¨‹åºå¯ä»¥æ›´æ”¹çš„å¸¸é‡
+ * Õâ¸öÀà´æ´¢³ÌĞò¿ÉÒÔ¸ü¸ÄµÄ³£Á¿
  */
 public final class Constant {
 	/**
-	 * ä¸éœ€è¦newè¿™ä¸ªç±»
+	 * ²»ĞèÒªnewÕâ¸öÀà
 	 */
 	private Constant() {
 	}
 
-	/**å¼€å§‹é¡µé¢çš„å­—ä½“æ ¼å¼*/
-	public static final Font BUTTON_FONT = new Font("å®‹ä½“", Font.BOLD | Font.ITALIC, 25);
-	/**ç½‘æ ¼åœ°å›¾çš„æ¨ªçºµåæ ‡çš„åç§»é‡*/
+	/**
+	 * ¿ªÊ¼Ò³ÃæµÄ×ÖÌå¸ñÊ½
+	 */
+	public static final Font BUTTON_FONT = new Font("ËÎÌå", Font.BOLD | Font.ITALIC, 25);
+	/**
+	 * Íø¸ñµØÍ¼µÄºá×İ×ø±êµÄÆ«ÒÆÁ¿
+	 */
 	public static final int DRAW_X_OFFSET = 10;
 	public static final int DRAW_Y_OFFSET = 7;
-	/**ä¸€ä¸ªåœ°å›¾æ ¼å­çš„é•¿å®½*/
+	/**
+	 * Ò»¸öµØÍ¼¸ñ×ÓµÄ³¤¿í
+	 */
 	public static final int GRID_WIDTH = 10;
 	public static final int GRID_HEIGHT = 10;
-	/**è›‡ä¸€èŠ‚bodyçš„é•¿å®½*/
+	/**
+	 * ÉßÒ»½ÚbodyµÄ³¤¿í
+	 */
 	public static final int SNAKE_BODY_WIDTH = 9;
 	public static final int SNAKE_BODY_HEIGHT = 9;
-	/**æ¸¸æˆæ—¶åº•éƒ¨çš„çŠ¶æ€æ */
+	/**
+	 * ÓÎÏ·Ê±µ×²¿µÄ×´Ì¬À¸
+	 */
 	public static final int BOTTOM_DOCK_HEIGHT = 60;
-	/**è›‡çš„åˆå§‹é•¿åº¦*/
+	/**
+	 * ÉßµÄ³õÊ¼³¤¶È
+	 */
 	public static final int INIT_SNAKE_LENGTH = 5;
-	/**åœ°å›¾ç½‘æ ¼çš„æ•°é‡*/
+	/**
+	 * µØÍ¼Íø¸ñµÄÊıÁ¿
+	 */
 	public static final int GRID_X_NUM = 40;
 	public static final int GRID_Y_NUM = 30;
-	/**é£Ÿç‰©æ•°é‡*/
+	/**
+	 * Ê³ÎïÊıÁ¿
+	 */
 	public static final int FOODS_NUM = 50;
-	/**éšæœºæ•°ç§å­æœ€å°æ›´æ–°æ—¶é—´*/
+	/**
+	 * Ëæ»úÊıÖÖ×Ó×îĞ¡¸üĞÂÊ±¼ä
+	 */
 	public static final int RANDOM_SEED_UPDATE_TIME = 2000;
-	/**è›‡çš„é€Ÿåº¦*/
+	/**
+	 * ÉßµÄËÙ¶È
+	 */
 	public static final int SNAKE_SPEED = 150;
-	/**ä¸»çª—å£å¤§å°*/
+	/**
+	 * Ö÷´°¿Ú´óĞ¡
+	 */
 	public static final int MAIN_WINDOW_WIDTH = 300;
 	public static final int MAIN_WINDOW_HEIGHT = 200;
-	/**ä¸¤ä¸ªçª—å£çš„åç§»*/
+	/**
+	 * Á½¸ö´°¿ÚµÄÆ«ÒÆ
+	 */
 	public static final int GAME_WINDOW_X_OFFSET =
 			(1920 - (GRID_X_NUM + 5) * GRID_WIDTH) / 2;
 	public static final int GAME_WINDOW_Y_OFFSET =
 			(1080 - (GRID_Y_NUM + 7) * GRID_HEIGHT - BOTTOM_DOCK_HEIGHT) / 2;
 	public static final int MAIN_WINDOW_X_OFFSET = (1920 - MAIN_WINDOW_WIDTH) / 2;
 	public static final int MAIN_WINDOW_Y_OFFSET = (1080 - MAIN_WINDOW_HEIGHT) / 2;
-	/**ç¨‹åºå¯åŠ¨æ—¶é—´, è®°å½•æ—¥å¿—ç”¨*/
-	public static final long TIME_STAMP=System.currentTimeMillis();
+	/**
+	 * ³ÌĞòÆô¶¯Ê±¼ä, ¼ÇÂ¼ÈÕÖ¾ÓÃ
+	 */
+	public static final long TIME_STAMP = System.currentTimeMillis();
 }

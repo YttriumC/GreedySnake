@@ -8,85 +8,85 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * æˆçª—å£, è¿›è¡Œè›‡, é£Ÿç‰©ç­‰çš„è®¾ç½®, å°è£…äº†æ¸¸æˆå†…å®¹çš„å¯¹è±¡
+ * Ï·´°¿Ú, ½øĞĞÉß, Ê³ÎïµÈµÄÉèÖÃ, ·â×°ÁËÓÎÏ·ÄÚÈİµÄ¶ÔÏó
  */
 public class GameWindow implements Drawable {
 
 	/**
-	 * æ‰€å¾—åˆ†æ•°
+	 * ËùµÃ·ÖÊı
 	 */
 	private int score;
 	/**
-	 * æ¸¸æˆpanel,ç»˜åˆ¶æ¸¸æˆç”¨
+	 * ÓÎÏ·panel,»æÖÆÓÎÏ·ÓÃ
 	 */
 	private JPanel gamePanel;
 	/**
-	 * è´ªåƒè›‡å¯¹è±¡
+	 * Ì°³ÔÉß¶ÔÏó
 	 */
 	private Snake snake;
 	/**
-	 * æ‰€æœ‰çš„é£Ÿç‰©å¯¹è±¡
+	 * ËùÓĞµÄÊ³Îï¶ÔÏó
 	 */
 	private ArrayList<Food> foods;
 	/**
-	 * æ ‡è¯†æ¸¸æˆæ˜¯å¦åœ¨è¿è¡Œ(æ˜¯å¦æ²¡æš‚åœ)
+	 * ±êÊ¶ÓÎÏ·ÊÇ·ñÔÚÔËĞĞ(ÊÇ·ñÃ»ÔİÍ£)
 	 */
 	private boolean gameContinue;
 
 	/**
-	 * æš‚åœæ¸¸æˆ
+	 * ÔİÍ£ÓÎÏ·
 	 */
 	public void pauseGame() {
 		this.gameContinue = false;
 	}
 
 	/**
-	 * ç»§ç»­æ¸¸æˆ
+	 * ¼ÌĞøÓÎÏ·
 	 */
 	public void resumeGame() {
 		this.gameContinue = true;
 	}
 
 	/**
-	 * è·å–æ¸¸æˆæ˜¯å¦åœ¨è¿è¡Œ
+	 * »ñÈ¡ÓÎÏ·ÊÇ·ñÔÚÔËĞĞ
 	 *
-	 * @return æ¸¸æˆæ˜¯å¦åœ¨è¿è¡Œ
+	 * @return ÓÎÏ·ÊÇ·ñÔÚÔËĞĞ
 	 */
 	public boolean getGameContinue() {
 		return gameContinue;
 	}
 
 	/**
-	 * è·å–è¿™æ¡è´ªåƒè›‡
+	 * »ñÈ¡ÕâÌõÌ°³ÔÉß
 	 *
-	 * @return è¿”å›è´ªåƒè›‡
+	 * @return ·µ»ØÌ°³ÔÉß
 	 */
 	public Snake getSnake() {
 		return snake;
 	}
 
 	/**
-	 * è®¾ç½®ä¸€æ¡è´ªåƒè›‡
+	 * ÉèÖÃÒ»ÌõÌ°³ÔÉß
 	 *
-	 * @param snake è¦æ·»åŠ çš„è›‡
+	 * @param snake ÒªÌí¼ÓµÄÉß
 	 */
 	public void setSnake(Snake snake) {
 		this.snake = snake;
 	}
 
 	/**
-	 * è·å–é£Ÿç‰©
+	 * »ñÈ¡Ê³Îï
 	 *
-	 * @return æ‰€æœ‰é£Ÿç‰©çš„é“¾è¡¨
+	 * @return ËùÓĞÊ³ÎïµÄÁ´±í
 	 */
 	public ArrayList<Food> getFoods() {
 		return foods;
 	}
 
 	/**
-	 * è®¾ç½®æ‰€æœ‰é£Ÿç‰©
+	 * ÉèÖÃËùÓĞÊ³Îï
 	 *
-	 * @param foods æ‰€æœ‰é£Ÿç‰©çš„é“¾è¡¨
+	 * @param foods ËùÓĞÊ³ÎïµÄÁ´±í
 	 */
 	public void setFoods(ArrayList<Food> foods) {
 		this.foods = foods;
@@ -94,45 +94,45 @@ public class GameWindow implements Drawable {
 
 
 	/**
-	 * è·å–å½“å‰åˆ†æ•°
+	 * »ñÈ¡µ±Ç°·ÖÊı
 	 *
-	 * @return å½“å‰åˆ†æ•°
+	 * @return µ±Ç°·ÖÊı
 	 */
 	public int getScore() {
 		return score;
 	}
 
 	/**
-	 * åŠ åˆ†
+	 * ¼Ó·Ö
 	 *
-	 * @param score è¦åŠ çš„åˆ†æ•°
+	 * @param score Òª¼ÓµÄ·ÖÊı
 	 */
 	public void addScore(int score) {
 		this.score += score;
 	}
 
 	/**
-	 * è·å–æ¸¸æˆpanel
+	 * »ñÈ¡ÓÎÏ·panel
 	 *
-	 * @return æ¸¸æˆçš„panel
+	 * @return ÓÎÏ·µÄpanel
 	 */
 	public JPanel getGamePanel() {
 		return gamePanel;
 	}
 
 	/**
-	 * è®¾ç½®æ¸¸æˆpanel
+	 * ÉèÖÃÓÎÏ·panel
 	 *
-	 * @param gamePanel æ¸¸æˆçš„panel
+	 * @param gamePanel ÓÎÏ·µÄpanel
 	 */
 	public void setGamePanel(JPanel gamePanel) {
 		this.gamePanel = gamePanel;
 	}
 
 	/**
-	 * æ„é€ æ–¹æ³•
+	 * ¹¹Ôì·½·¨
 	 *
-	 * @param snake éœ€è¦ä¸€æ¡è´ªåƒè›‡å®Œæˆæ„é€ 
+	 * @param snake ĞèÒªÒ»ÌõÌ°³ÔÉßÍê³É¹¹Ôì
 	 */
 	public GameWindow(Snake snake) {
 		this.snake = snake;
@@ -140,9 +140,9 @@ public class GameWindow implements Drawable {
 	}
 
 	/**
-	 * Drawableæ¥å£å®ç°
+	 * Drawable½Ó¿ÚÊµÏÖ
 	 *
-	 * @param g å›¾å½¢å¯¹è±¡,ç³»ç»Ÿç”¨æ¥ç»˜åˆ¶å›¾åƒ
+	 * @param g Í¼ĞÎ¶ÔÏó,ÏµÍ³ÓÃÀ´»æÖÆÍ¼Ïñ
 	 */
 	@Override
 	public void paint(Graphics g) {

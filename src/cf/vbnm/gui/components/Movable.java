@@ -1,7 +1,11 @@
 package cf.vbnm.gui.components;
 
-import java.util.ArrayList;
-
+/**
+ * 实现该接口就可以移动
+ */
 public interface Movable {
+	/**
+	 * 移动
+	 */
 	void move();
 }

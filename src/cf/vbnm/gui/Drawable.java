@@ -3,22 +3,22 @@ package cf.vbnm.gui;
 import java.awt.*;
 
 /**
- * ç»˜ç”»æ¥å£,å®ç°æ­¤æ¥å£å¯ä»¥åœ¨å±å¹•ä¸Šç»˜åˆ¶å›¾åƒ
+ * »æ»­½Ó¿Ú,ÊµÏÖ´Ë½Ó¿Ú¿ÉÒÔÔÚÆÁÄ»ÉÏ»æÖÆÍ¼Ïñ
  */
 public interface Drawable {
 	/**
-	 * Xè½´çš„ç»˜åˆ¶åç§»
+	 * XÖáµÄ»æÖÆÆ«ÒÆ
 	 */
 	int XOffset = Constant.DRAW_X_OFFSET;
 	/**
-	 * Yç»˜åˆ¶åç§»
+	 * Y»æÖÆÆ«ÒÆ
 	 */
 	int YOffset = Constant.DRAW_Y_OFFSET;
 
 	/**
-	 * ç»˜åˆ¶éœ€è¦ç»˜åˆ¶çš„ä¸œè¥¿
+	 * »æÖÆĞèÒª»æÖÆµÄ¶«Î÷
 	 *
-	 * @param g ç³»ç»Ÿè°ƒç”¨çš„,ç”¨æ¥ç»˜åˆ¶å›¾åƒ
+	 * @param g ÏµÍ³µ÷ÓÃµÄ,ÓÃÀ´»æÖÆÍ¼Ïñ
 	 */
 	void paint(Graphics g);
 }

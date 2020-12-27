@@ -10,11 +10,14 @@ import cf.vbnm.util.Util;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 /**
- * ä¸»æ¸¸æˆç•Œé¢å…ƒç´ ç±», ä¿å­˜æ¸¸æˆçª—å£
+ * Ö÷ÓÎÏ·½çÃæÔªËØÀà, ±£´æÓÎÏ·´°¿Ú
  *
  * @version 1.0
  */
@@ -48,13 +51,13 @@ public class GameMain {
 
 
 	/**
-	 * @param foodNums     é£Ÿç‰©æ•°é‡
-	 * @param initSnakeLen åˆå§‹è›‡é•¿åº¦
-	 * @param gridXNum     Xæ–¹å‘æ ¼å­æ•°é‡
-	 * @param gridYNum     Yæ–¹å‘æ ¼å­æ•°é‡
+	 * @param foodNums     Ê³ÎïÊıÁ¿
+	 * @param initSnakeLen ³õÊ¼Éß³¤¶È
+	 * @param gridXNum     X·½Ïò¸ñ×ÓÊıÁ¿
+	 * @param gridYNum     Y·½Ïò¸ñ×ÓÊıÁ¿
 	 */
 	public void init(int initSnakeLen, int foodNums, int gridXNum, int gridYNum) {
-		System.err.printf("%.3f [WARNING] æ¸¸æˆçª—å£åˆå§‹åŒ–\n",
+		System.err.printf("%.3f [WARNING] ÓÎÏ·´°¿Ú³õÊ¼»¯\n",
 				(float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
 		Snake snake = new Snake(Constant.INIT_SNAKE_LENGTH);
 		gameWindow = new GameWindow(snake);
@@ -73,12 +76,12 @@ public class GameMain {
 				ArrayList<Food> food = gameWindow.getFoods();
 				for (Food value : food) value.paint(g);
 				g.setFont(Constant.BUTTON_FONT);
-				//ç»˜åˆ¶å¾—åˆ†ä¿¡æ¯
-				g.drawString("å½“å‰å¾—åˆ†:" + gameWindow.getScore(), Constant.DRAW_X_OFFSET,
+				//»æÖÆµÃ·ÖĞÅÏ¢
+				g.drawString("µ±Ç°µÃ·Ö:" + gameWindow.getScore(), Constant.DRAW_X_OFFSET,
 						(gridYNum + 5) * Constant.GRID_HEIGHT);
 			}
 		};
-		//ç»˜åˆ¶åœ°å›¾GamePanel
+		//»æÖÆµØÍ¼GamePanel
 		gameWindow.setGamePanel(gamePanel);
 		thisFrame = new JFrame("Greedy Snake");
 		thisFrame.setBackground(Color.LIGHT_GRAY);
@@ -100,7 +103,7 @@ public class GameMain {
 		}
 		gameWindow.setFoods(foods);
 		JPanel panel = gameWindow.getGamePanel();
-		JButton button = new JButton("æš‚åœ...æŒ‰Escæ¢å¤");
+		JButton button = new JButton("ÔİÍ£...°´Esc»Ö¸´");
 		button.setFont(Constant.BUTTON_FONT);
 		button.setVisible(false);
 		button.setEnabled(false);
@@ -115,24 +118,24 @@ public class GameMain {
 	}
 
 	/**
-	 * å„ç§äº‹ä»¶çš„æ³¨å†Œ
+	 * ¸÷ÖÖÊÂ¼şµÄ×¢²á
 	 */
 	public void regEvent() {
 		thisFrame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosed(WindowEvent e) {
-				System.err.printf("%.3f [WARNING] çª—å£å…³é—­\n",
+				System.err.printf("%.3f [WARNING] ´°¿Ú¹Ø±Õ\n",
 						(float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
 				gameStarted = false;
 				superFrame.setVisible(true);
 			}
 		});
-		System.err.printf("%.3f [WARNING] æŒ‰é”®ç›‘å¬æ³¨å†Œ\n",
+		System.err.printf("%.3f [WARNING] °´¼ü¼àÌı×¢²á\n",
 				(float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
 		thisFrame.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				System.out.printf("%.3f [INFO] ç›‘å¬åˆ°æŒ‰é”®\n",
+				System.out.printf("%.3f [INFO] ¼àÌıµ½°´¼ü\n",
 						(float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
 				if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
 					Direction OriginDirection = gameWindow.getSnake().getDirection();
@@ -170,11 +173,11 @@ public class GameMain {
 	}
 
 	/**
-	 * å¼€å§‹æ¸¸æˆ,å¹¶æ–°å»ºä¸€ä¸ªçº¿ç¨‹
+	 * ¿ªÊ¼ÓÎÏ·,²¢ĞÂ½¨Ò»¸öÏß³Ì
 	 */
 	public void startGame() {
 		System.err.println((float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000
-				+ " [WARNING] æ¸¸æˆå¼€å§‹");
+				+ " [WARNING] ÓÎÏ·¿ªÊ¼");
 		gameWindow.resumeGame();
 		new Thread(() -> {
 			try {

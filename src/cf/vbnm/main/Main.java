@@ -5,55 +5,55 @@ import cf.vbnm.gui.Constant;
 import javax.swing.*;
 
 /**
- * ä¸»ç±»,å¯åŠ¨ç±»
+ * Ö÷Àà,Æô¶¯Àà
  */
 public class Main {
 	/**
-	 * æ¸¸æˆå…¥å£
+	 * ÓÎÏ·Èë¿Ú
 	 */
 	private JFrame entry;
 	/**
-	 * é€‰æ‹©
+	 * Ñ¡Ôñ
 	 */
 	private JPanel select;
 	/**
-	 * å¼€å§‹æ¸¸æˆæŒ‰é”®
+	 * ¿ªÊ¼ÓÎÏ·°´¼ü
 	 */
 	private JButton startGame;
 	/**
-	 * é€€å‡ºæŒ‰é”®
+	 * ÍË³ö°´¼ü
 	 */
 	private JButton exit;
 	/**
-	 * æœ¬ç±»
+	 * ±¾Àà
 	 */
 	private final GameMain gameMain = new GameMain();
 
 	/**
-	 * ç¨‹åºæ³¨å†Œ
+	 * ³ÌÐò×¢²á
 	 *
-	 * @param args è¿™ä¸ªå‚æ•°æ²¡å•¥ç”¨
+	 * @param args Õâ¸ö²ÎÊýÃ»É¶ÓÃ
 	 */
 	public static void main(String[] args) {
-		System.err.printf("%.3f [WARNING] åˆå§‹åŒ–\n", 0.0f);
+		System.err.printf("%.3f [WARNING] ³õÊ¼»¯\n", 0.0f);
 		Main main = new Main();
-		main.entry = new JFrame("å½©è‰²è´ªåƒè›‡å°æ¸¸æˆ");
+		main.entry = new JFrame("²ÊÉ«Ì°³ÔÉßÐ¡ÓÎÏ·");
 		main.entry.setBounds(Constant.MAIN_WINDOW_X_OFFSET, Constant.MAIN_WINDOW_Y_OFFSET,
 				Constant.MAIN_WINDOW_WIDTH, Constant.MAIN_WINDOW_HEIGHT);
-		/*ä¸å…è®¸é‡è®¾çª—ä½“å¤§å°*/
+		/*²»ÔÊÐíÖØÉè´°Ìå´óÐ¡*/
 		main.entry.setResizable(false);
 		main.entry.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		main.select = new JPanel();
 		main.startGame = new JButton("Start Game!");
 		main.exit = new JButton("EXIT");
-		/*è®¾ç½®å­—ä½“*/
+		/*ÉèÖÃ×ÖÌå*/
 		main.startGame.setFont(Constant.BUTTON_FONT);
 		main.exit.setFont(Constant.BUTTON_FONT);
-		/*æ·»åŠ ç»„ä»¶*/
+		/*Ìí¼Ó×é¼þ*/
 		main.select.add(main.startGame);
 		main.select.add(main.exit);
 		main.entry.add(main.select);
-		/*æ³¨å†Œäº‹ä»¶*/
+		/*×¢²áÊÂ¼þ*/
 		main.eventReg(main);
 		main.entry.setVisible(true);
 		main.entry.validate();
@@ -61,14 +61,14 @@ public class Main {
 	}
 
 	/**
-	 * ç¬¬ä¸€ä¸ªçª—å£çš„äº‹ä»¶æ³¨å†Œ
+	 * µÚÒ»¸ö´°¿ÚµÄÊÂ¼þ×¢²á
 	 *
-	 * @param main ç»™ä¸»çª—å£æ³¨å†Œäº‹ä»¶çš„,ä¸»çª—å£çš„å¯¹è±¡åœ¨é‡Œé¢
+	 * @param main ¸øÖ÷´°¿Ú×¢²áÊÂ¼þµÄ,Ö÷´°¿ÚµÄ¶ÔÏóÔÚÀïÃæ
 	 */
 	public void eventReg(Main main) {
-		System.err.printf("%.3f [WARNING] ä¸»çª—å£äº‹ä»¶æ³¨å†Œ\n",
+		System.err.printf("%.3f [WARNING] Ö÷´°¿ÚÊÂ¼þ×¢²á\n",
 				(float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
-		/*å¼€å§‹æ¸¸æˆçš„äº‹ä»¶æ³¨å†Œ*/
+		/*¿ªÊ¼ÓÎÏ·µÄÊÂ¼þ×¢²á*/
 		main.startGame.addActionListener((e) -> {
 			gameMain.init(Constant.INIT_SNAKE_LENGTH, Constant.FOODS_NUM,
 					Constant.GRID_X_NUM, Constant.GRID_Y_NUM);
@@ -77,7 +77,7 @@ public class Main {
 			entry.setVisible(false);
 			gameMain.startGame();
 		});
-		/*é€€å‡ºçš„äº‹ä»¶æ³¨å†Œ*/
+		/*ÍË³öµÄÊÂ¼þ×¢²á*/
 		main.exit.addActionListener((e -> {
 			System.exit(0);
 		}));

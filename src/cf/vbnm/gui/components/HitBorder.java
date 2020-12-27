@@ -1,8 +1,11 @@
 package cf.vbnm.gui.components;
 
 /**
- * å¯ä»¥æ’åˆ°è¾¹ç•Œå°±å®ç°è¿™ä¸ªæ¥å£
+ * ¿ÉÒÔ×²µ½±ß½ç¾ÍÊµÏÖÕâ¸ö½Ó¿Ú
  */
 public interface HitBorder {
+	/**
+	 * ×²µ½±ß½çºó¸ÃÔõÃ´°ì
+	 */
 	void hitBorder();
 }

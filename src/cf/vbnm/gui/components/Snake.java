@@ -11,39 +11,39 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * è¯¥ç±»æè¿°äº†ä¸€ä¸ªè´ªåƒè›‡æ‰€å…·æœ‰çš„å±æ€§
+ * ¸ÃÀàÃèÊöÁËÒ»¸öÌ°³ÔÉßËù¾ßÓĞµÄÊôĞÔ
  */
 public class Snake implements Drawable, Movable, HitBorder {
 	/**
-	 * è›‡çš„èº«ä½“
+	 * ÉßµÄÉíÌå
 	 */
 	Body snakeBody;
 	/**
-	 * è›‡èµ°çš„æ–¹å‘
+	 * Éß×ßµÄ·½Ïò
 	 */
 	Direction direction;
 	/**
-	 * ç©å®¶è¾“å…¥çš„æ–¹å‘,ä»¥é¿å…ä¸€ä¸ªéšè—çš„bug
+	 * Íæ¼ÒÊäÈëµÄ·½Ïò,ÒÔ±ÜÃâÒ»¸öÒş²ØµÄbug
 	 */
 	Direction tempDirection;
 
 	/**
-	 * è›‡çš„èº«ä½“çš„å®šä¹‰,æˆå‘˜å†…éƒ¨ç±»
+	 * ÉßµÄÉíÌåµÄ¶¨Òå,³ÉÔ±ÄÚ²¿Àà
 	 */
 	private static class Body {
 		/**
-		 * è›‡èº«ä½“çš„å„ä¸ªé¢œè‰²çš„é“¾è¡¨
+		 * ÉßÉíÌåµÄ¸÷¸öÑÕÉ«µÄÁ´±í
 		 */
 		private final ArrayList<ComponentColor> bodyColor;
 		/**
-		 * è›‡èº«ä½“å„ä¸ªéƒ¨åˆ†çš„åæ ‡
+		 * ÉßÉíÌå¸÷¸ö²¿·ÖµÄ×ø±ê
 		 */
 		private LinkedList<Point> coordinates;
 
 		/**
-		 * æ„é€ æ–¹æ³•,ç”Ÿæˆä¸€ä¸ªè›‡çš„èº«ä½“
+		 * ¹¹Ôì·½·¨,Éú³ÉÒ»¸öÉßµÄÉíÌå
 		 *
-		 * @param snakeLength è›‡åˆå§‹é•¿åº¦
+		 * @param snakeLength Éß³õÊ¼³¤¶È
 		 */
 		public Body(int snakeLength) {
 			bodyColor = new ArrayList<>();
@@ -55,10 +55,10 @@ public class Snake implements Drawable, Movable, HitBorder {
 		}
 
 		/**
-		 * æ·»åŠ ä¸€ä¸ªè›‡çš„æ–¹å—
+		 * Ìí¼ÓÒ»¸öÉßµÄ·½¿é
 		 *
-		 * @param componentColor è›‡çš„é¢œè‰²
-		 * @param coordinate     è›‡çš„ä½ç½®
+		 * @param componentColor ÉßµÄÑÕÉ«
+		 * @param coordinate     ÉßµÄÎ»ÖÃ
 		 */
 		public void addBody(ComponentColor componentColor, Point coordinate) {
 			bodyColor.add(componentColor);
@@ -66,18 +66,18 @@ public class Snake implements Drawable, Movable, HitBorder {
 		}
 
 		/**
-		 * å¾—åˆ°è›‡çš„èº«ä½“é¢œè‰²
+		 * µÃµ½ÉßµÄÉíÌåÑÕÉ«
 		 *
-		 * @return è›‡çš„èº«ä½“ç»„æˆé¢œè‰²çš„æ•°ç»„
+		 * @return ÉßµÄÉíÌå×é³ÉÑÕÉ«µÄÊı×é
 		 */
 		public ArrayList<ComponentColor> getBodyColor() {
 			return bodyColor;
 		}
 
 		/**
-		 * å¾—åˆ°è›‡çš„èº«ä½“ä½ç½®
+		 * µÃµ½ÉßµÄÉíÌåÎ»ÖÃ
 		 *
-		 * @return è›‡çš„ä½ç½®çš„é“¾è¡¨
+		 * @return ÉßµÄÎ»ÖÃµÄÁ´±í
 		 */
 		public LinkedList<Point> getCoordinates() {
 			return coordinates;
@@ -85,36 +85,36 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * å¾—åˆ°è›‡çš„å„ä¸ªèº«ä½“éƒ¨ä½çš„åæ ‡
+	 * µÃµ½ÉßµÄ¸÷¸öÉíÌå²¿Î»µÄ×ø±ê
 	 *
-	 * @return è›‡çš„ä½ç½®çš„åæ ‡
+	 * @return ÉßµÄÎ»ÖÃµÄ×ø±ê
 	 */
 	public LinkedList<Point> getSnakePosition() {
 		return snakeBody.coordinates;
 	}
 
 	/**
-	 * è·å–è´ªåƒè›‡å½“å‰å‰è¿›æ–¹å‘
+	 * »ñÈ¡Ì°³ÔÉßµ±Ç°Ç°½ø·½Ïò
 	 *
-	 * @return å‰è¿›æ–¹å‘
+	 * @return Ç°½ø·½Ïò
 	 */
 	public Direction getDirection() {
 		return direction;
 	}
 
 	/**
-	 * è®¾ç½®è´ªåƒè›‡å½“å‰å‰è¿›æ–¹å‘
+	 * ÉèÖÃÌ°³ÔÉßµ±Ç°Ç°½ø·½Ïò
 	 *
-	 * @param direction æ–¹å‘
+	 * @param direction ·½Ïò
 	 */
 	public void setDirection(Direction direction) {
 		this.tempDirection = direction;
 	}
 
 	/**
-	 * å®ç°ç»˜åˆ¶è›‡çš„æ–¹æ³•,ç”±ç”µè„‘è°ƒç”¨
+	 * ÊµÏÖ»æÖÆÉßµÄ·½·¨,ÓÉµçÄÔµ÷ÓÃ
 	 *
-	 * @param g å›¾åƒ
+	 * @param g Í¼Ïñ
 	 */
 	@Override
 	public void paint(Graphics g) {
@@ -132,9 +132,9 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * ç”Ÿæˆä¸€ä¸ªè´ªåƒè›‡
+	 * Éú³ÉÒ»¸öÌ°³ÔÉß
 	 *
-	 * @param initLength è›‡çš„åˆå§‹é•¿åº¦
+	 * @param initLength ÉßµÄ³õÊ¼³¤¶È
 	 */
 	public Snake(int initLength) {
 		snakeBody = new Body(initLength);
@@ -143,9 +143,9 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * Movableæ¥å£å›è°ƒæ‰©å±•æ–¹æ³•
+	 * Movable½Ó¿Ú»Øµ÷À©Õ¹·½·¨
 	 *
-	 * @param direction ç§»åŠ¨æ–¹å‘
+	 * @param direction ÒÆ¶¯·½Ïò
 	 */
 	public void move0(Direction direction) {
 		LinkedList<Point> coordinates = snakeBody.getCoordinates();
@@ -168,13 +168,13 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * æ’å¢™åçš„å›è°ƒ,(ç»ˆæ­¢æ¸¸æˆ)
+	 * ×²Ç½ºóµÄ»Øµ÷,(ÖÕÖ¹ÓÎÏ·)
 	 */
 	@Override
 	public void hitBorder() {
 		GameMain.getGameWindow().pauseGame();
 		JButton jButton = (JButton) GameMain.getGameWindow().getGamePanel().getComponent(1);
-		jButton.setText("ä½ å¤±è´¥äº†,å¾—åˆ†æ˜¯" + GameMain.getGameWindow().getScore());
+		jButton.setText("ÄãÊ§°ÜÁË,µÃ·ÖÊÇ" + GameMain.getGameWindow().getScore());
 		jButton.setVisible(true);
 		try {
 			Thread.sleep(Constant.SNAKE_SPEED);
@@ -185,12 +185,12 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * åˆ¤æ–­å‰é¢æœ‰æ²¡æœ‰é£Ÿç‰©,åŒæ—¶åƒæ‰å‰é¢çš„é£Ÿç‰©å¹¶ä¸”èº«ä½“é•¿åº¦+1
+	 * ÅĞ¶ÏÇ°ÃæÓĞÃ»ÓĞÊ³Îï,Í¬Ê±³ÔµôÇ°ÃæµÄÊ³Îï²¢ÇÒÉíÌå³¤¶È+1
 	 *
-	 * @param p     å½“å‰æ‰€åœ¨çš„ç‚¹
-	 * @param d     æ–¹å‘
-	 * @param foods æ‰€æœ‰çš„é£Ÿç‰©
-	 * @return æ˜¯å¦åƒåˆ°äº†é£Ÿç‰©
+	 * @param p     µ±Ç°ËùÔÚµÄµã
+	 * @param d     ·½Ïò
+	 * @param foods ËùÓĞµÄÊ³Îï
+	 * @return ÊÇ·ñ³Ôµ½ÁËÊ³Îï
 	 */
 	public boolean isFoodFront(Point p, Direction d, ArrayList<Food> foods) {
 		p = (Point) p.clone();
@@ -211,7 +211,7 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * Movableæ¥å£çš„å®ç°
+	 * Movable½Ó¿ÚµÄÊµÏÖ
 	 */
 	@Override
 	public void move() {
@@ -222,10 +222,10 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * è¾¹ç•Œæ£€æµ‹, åŒæ—¶æ£€æµ‹ä¼šä¸ä¼šç¢°åˆ°è‡ªå·±
+	 * ±ß½ç¼ì²â, Í¬Ê±¼ì²â»á²»»áÅöµ½×Ô¼º
 	 *
-	 * @param direction éœ€è¦æ£€æµ‹çš„æ–¹å‘
-	 * @return æ˜¯å¦ç¢°åˆ°è¾¹ç•Œ, æˆ–è€…åƒåˆ°è‡ªå·±
+	 * @param direction ĞèÒª¼ì²âµÄ·½Ïò
+	 * @return ÊÇ·ñÅöµ½±ß½ç, »òÕß³Ôµ½×Ô¼º
 	 */
 	public boolean hitDetect(Direction direction) {
 		Point last = snakeBody.getCoordinates().getLast();
@@ -256,11 +256,11 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * åƒæ‰ä¸€ä¸ªæ–¹å—,ç„¶åç”Ÿæˆä¸€ä¸ªæ–°æ–¹å—
+	 * ³ÔµôÒ»¸ö·½¿é,È»ºóÉú³ÉÒ»¸öĞÂ·½¿é
 	 *
-	 * @param p     æ£€æµ‹çš„æ–¹å—,å¦‚æœPä¸Šé¢æœ‰é£Ÿç‰©,å°±åƒæ‰
-	 * @param foods æ‰€æœ‰çš„é£Ÿç‰©
-	 * @return æ˜¯å¦åƒåˆ°é£Ÿç‰©
+	 * @param p     ¼ì²âµÄ·½¿é,Èç¹ûPÉÏÃæÓĞÊ³Îï,¾Í³Ôµô
+	 * @param foods ËùÓĞµÄÊ³Îï
+	 * @return ÊÇ·ñ³Ôµ½Ê³Îï
 	 */
 	private synchronized boolean eatFood(Point p, ArrayList<Food> foods) {
 		Food food;
@@ -268,7 +268,7 @@ public class Snake implements Drawable, Movable, HitBorder {
 			food = foods.get(i);
 			if (food.getCoordinate().equals(p)) {
 				snakeBody.addBody(food.getColor(), food.getCoordinate());
-				/*æ ¹æ®åƒåˆ°çš„ä¸åŒæ–¹å—å±æ€§åŠ ä¸åŒçš„åˆ†æ•°*/
+				/*¸ù¾İ³Ôµ½µÄ²»Í¬·½¿éÊôĞÔ¼Ó²»Í¬µÄ·ÖÊı*/
 				switch (food.getFoodType()) {
 					case BAD:
 						GameMain.getGameWindow().addScore(1);
@@ -277,7 +277,7 @@ public class Snake implements Drawable, Movable, HitBorder {
 					case GOOD:
 						GameMain.getGameWindow().addScore(3);
 				}
-				System.out.printf("%.3f [INFO] åƒåˆ°é£Ÿç‰©\n", (float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
+				System.out.printf("%.3f [INFO] ³Ôµ½Ê³Îï\n", (float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
 				foods.set(i, food.generateFood(this));
 				return true;
 			}
@@ -286,9 +286,9 @@ public class Snake implements Drawable, Movable, HitBorder {
 	}
 
 	/**
-	 * ç§»åŠ¨, å¦‚æœæœ‰é£Ÿç‰©,åˆ™åƒæ‰å®ƒ;åŒæ—¶ç¢°æ’æ£€æµ‹
+	 * ÒÆ¶¯, Èç¹ûÓĞÊ³Îï,Ôò³ÔµôËü;Í¬Ê±Åö×²¼ì²â
 	 *
-	 * @param foods é£Ÿç‰©
+	 * @param foods Ê³Îï
 	 */
 	public void move1(ArrayList<Food> foods) {
 		if (isFoodFront(snakeBody.coordinates.getLast(), direction, foods)) {

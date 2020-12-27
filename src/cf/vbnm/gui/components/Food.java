@@ -6,38 +6,57 @@ import cf.vbnm.util.Util;
 
 import java.awt.*;
 
+/**
+ * 该类定义了食物的实现
+ */
 public class Food extends AbstractFood implements Drawable {
+	/**
+	 * 食物类型,可以加不同得分
+	 */
 	private EnumFood foodType;
+	/**
+	 * 食物颜色
+	 */
 	private ComponentColor color;
+	/**
+	 * 食物位置
+	 */
 	private Point coordinate;
-//	public static final Dimension FOOD_SIZE = new Dimension(5, 5);
 
+	/**
+	 * 构造方法, 生成一个食物
+	 *
+	 * @param color      食物颜色
+	 * @param coordinate 食物位置
+	 */
 	public Food(Point coordinate, ComponentColor color) {
 		this.coordinate = coordinate;
 		setFoodType();
 		this.color = color;
 	}
 
+	/**
+	 * 获得食物的颜色
+	 *
+	 * @return 食物颜色
+	 */
 	public ComponentColor getColor() {
 		return color;
 	}
 
+	/**
+	 * 获得食物位置
+	 *
+	 * @return 食物位置
+	 */
 	public Point getCoordinate() {
 		return coordinate;
 	}
 
-//	public static Dimension getFoodSize() {
-//		return FOOD_SIZE;
-//	}
-
-	public Food(EnumFood food) {
-		foodType = food;
-	}
-
-	public void setFoodType(EnumFood foodType) {
-		this.foodType = foodType;
-	}
-
+	/**
+	 * 随机生成一个食物类型,
+	 * 其中中等食物概率3/5,好食物概率1/5,差食物概率1/5
+	 */
 	public void setFoodType() {
 		int random = Util.random(5);
 		switch (random) {
@@ -50,13 +69,22 @@ public class Food extends AbstractFood implements Drawable {
 			default:
 				foodType = EnumFood.GOOD;
 		}
-		;
 	}
 
+	/**
+	 * 获得食物类型,以便加相应的分
+	 *
+	 * @return 食物类型
+	 */
 	public EnumFood getFoodType() {
 		return foodType;
 	}
 
+	/**
+	 * 生成一个随机的食物,但是不能跟蛇的位置重叠
+	 * @param snake 贪吃蛇
+	 * @return 返回一个食物
+	 */
 	public Food generateFood(Snake snake) {
 		Point randomPoint = Util.randomPoint(Constant.GRID_X_NUM, Constant.GRID_Y_NUM);
 		while (true) {
@@ -73,6 +101,11 @@ public class Food extends AbstractFood implements Drawable {
 		}
 	}
 
+	/**
+	 * 绘制食物
+	 *
+	 * @param g 系统调用
+	 */
 	@Override
 	public void paint(Graphics g) {
 		Color c = g.getColor();
@@ -84,8 +117,13 @@ public class Food extends AbstractFood implements Drawable {
 		g.setColor(c);
 	}
 
+	/**
+	 * 设置颜色
+	 *
+	 * @param color 颜色
+	 */
 	@Override
-	void setColor(ComponentColor color) {
+	public void setColor(ComponentColor color) {
 		this.color = color;
 	}
 }
