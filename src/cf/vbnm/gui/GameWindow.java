@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * @apiNote 游戏窗口, 进行蛇, 食物等的设置, 封装了游戏内容的对象
+ * 戏窗口, 进行蛇, 食物等的设置, 封装了游戏内容的对象
  */
 public class GameWindow extends AbstractWindow implements Drawable {
 

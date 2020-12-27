@@ -10,26 +10,44 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ * 该类描述了一个贪吃蛇所具有的属性
+ */
 public class Snake implements Drawable, Movable, HitBorder {
+	/**
+	 * 蛇的身体
+	 */
 	Body snakeBody;
+	/**
+	 * 蛇走的方向
+	 */
 	Direction direction;
+	/**
+	 * 玩家输入的方向,以避免一个隐藏的bug
+	 */
 	Direction tempDirection;
 
 	/**
-	 * 蛇的身体的定义,内部类
+	 * 蛇的身体的定义,成员内部类
 	 */
 	private static class Body {
-		private int snakeLength;
+		/**
+		 * 蛇身体的各个颜色的链表
+		 */
 		private final ArrayList<ComponentColor> bodyColor;
+		/**
+		 * 蛇身体各个部分的坐标
+		 */
 		private LinkedList<Point> coordinates;
 
 		/**
 		 * 构造方法,生成一个蛇的身体
+		 *
+		 * @param snakeLength 蛇初始长度
 		 */
 		public Body(int snakeLength) {
 			bodyColor = new ArrayList<>();
 			coordinates = new LinkedList<>();
-			this.snakeLength = snakeLength;
 			for (int i = 0; i < snakeLength; i++) {
 				bodyColor.add(ComponentColor.getRandomColor());
 				coordinates.add(new Point(i, 0));
@@ -38,11 +56,13 @@ public class Snake implements Drawable, Movable, HitBorder {
 
 		/**
 		 * 添加一个蛇的方块
+		 *
+		 * @param componentColor 蛇的颜色
+		 * @param coordinate     蛇的位置
 		 */
 		public void addBody(ComponentColor componentColor, Point coordinate) {
 			bodyColor.add(componentColor);
 			coordinates.addLast(coordinate);
-			snakeLength++;
 		}
 
 		/**
@@ -64,20 +84,37 @@ public class Snake implements Drawable, Movable, HitBorder {
 		}
 	}
 
+	/**
+	 * 得到蛇的各个身体部位的坐标
+	 *
+	 * @return 蛇的位置的坐标
+	 */
 	public LinkedList<Point> getSnakePosition() {
 		return snakeBody.coordinates;
 	}
 
+	/**
+	 * 获取贪吃蛇当前前进方向
+	 *
+	 * @return 前进方向
+	 */
 	public Direction getDirection() {
 		return direction;
 	}
 
+	/**
+	 * 设置贪吃蛇当前前进方向
+	 *
+	 * @param direction 方向
+	 */
 	public void setDirection(Direction direction) {
 		this.tempDirection = direction;
 	}
 
 	/**
-	 * 实现绘制蛇的方法
+	 * 实现绘制蛇的方法,由电脑调用
+	 *
+	 * @param g 图像
 	 */
 	@Override
 	public void paint(Graphics g) {
@@ -94,6 +131,11 @@ public class Snake implements Drawable, Movable, HitBorder {
 		g.setColor(c);
 	}
 
+	/**
+	 * 生成一个贪吃蛇
+	 *
+	 * @param initLength 蛇的初始长度
+	 */
 	public Snake(int initLength) {
 		snakeBody = new Body(initLength);
 		direction = Direction.RIGHT;
@@ -102,6 +144,8 @@ public class Snake implements Drawable, Movable, HitBorder {
 
 	/**
 	 * Movable接口回调扩展方法
+	 *
+	 * @param direction 移动方向
 	 */
 	public void move0(Direction direction) {
 		LinkedList<Point> coordinates = snakeBody.getCoordinates();
@@ -142,6 +186,11 @@ public class Snake implements Drawable, Movable, HitBorder {
 
 	/**
 	 * 判断前面有没有食物,同时吃掉前面的食物并且身体长度+1
+	 *
+	 * @param p     当前所在的点
+	 * @param d     方向
+	 * @param foods 所有的食物
+	 * @return 是否吃到了食物
 	 */
 	public boolean isFoodFront(Point p, Direction d, ArrayList<Food> foods) {
 		p = (Point) p.clone();
@@ -165,7 +214,7 @@ public class Snake implements Drawable, Movable, HitBorder {
 	 * Movable接口的实现
 	 */
 	@Override
-	public synchronized void move() {
+	public void move() {
 		System.out.printf("%.3f [INFO] 1 step\n",
 				(float) (System.currentTimeMillis() - Constant.TIME_STAMP) / 1000);
 		direction = tempDirection;
@@ -251,25 +300,7 @@ public class Snake implements Drawable, Movable, HitBorder {
 		} else {
 			hitBorder();
 		}
-	/*	} else if (direction == Direction.DOWN) {
-			if (!hitDetect(direction)) {
-				move0(direction);
-			} else {
-				hitBorder();
-			}
-		} else if (direction == Direction.LEFT) {
-			if (!hitDetect(direction)) {
-				move0(direction);
-			} else {
-				hitBorder();
-			}
-		} else if (direction == Direction.RIGHT) {
-			if (!hitDetect(direction)) {
-				move0(direction);
-			} else {
-				hitBorder();
-			}
-		}*/
+
 	}
 
 }
