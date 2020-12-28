@@ -1,4 +1,4 @@
-package cf.vbnm.gui;
+package cf.vbnm.util;
 
 import java.awt.*;
 
@@ -27,7 +27,7 @@ public final class Constant {
 	public static final int GRID_WIDTH = 10;
 	public static final int GRID_HEIGHT = 10;
 	/**
-	 * 蛇一节body的长宽
+	 * 贪吃蛇一节body的长宽
 	 */
 	public static final int SNAKE_BODY_WIDTH = 9;
 	public static final int SNAKE_BODY_HEIGHT = 9;

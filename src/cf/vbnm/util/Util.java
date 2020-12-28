@@ -1,7 +1,5 @@
 package cf.vbnm.util;
 
-import cf.vbnm.gui.Constant;
-
 import java.awt.*;
 import java.util.Random;
 

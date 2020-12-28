@@ -1,6 +1,6 @@
 package cf.vbnm.gui.components;
 
-import cf.vbnm.gui.Constant;
+import cf.vbnm.util.Constant;
 import cf.vbnm.gui.Drawable;
 import cf.vbnm.util.Util;
 
@@ -82,6 +82,7 @@ public class Food extends AbstractFood implements Drawable {
 
 	/**
 	 * 生成一个随机的食物,但是不能跟蛇的位置重叠
+	 *
 	 * @param snake 贪吃蛇
 	 * @return 返回一个食物
 	 */

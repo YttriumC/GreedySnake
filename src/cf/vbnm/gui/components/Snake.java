@@ -1,6 +1,6 @@
 package cf.vbnm.gui.components;
 
-import cf.vbnm.gui.Constant;
+import cf.vbnm.util.Constant;
 import cf.vbnm.gui.Drawable;
 import cf.vbnm.main.GameMain;
 

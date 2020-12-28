@@ -1,5 +1,7 @@
 package cf.vbnm.gui;
 
+import cf.vbnm.util.Constant;
+
 import java.awt.*;
 
 /**

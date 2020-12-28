@@ -1,6 +1,6 @@
 package cf.vbnm.main;
 
-import cf.vbnm.gui.Constant;
+import cf.vbnm.util.Constant;
 import cf.vbnm.gui.GameWindow;
 import cf.vbnm.gui.components.ComponentColor;
 import cf.vbnm.gui.components.Direction;

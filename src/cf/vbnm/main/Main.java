@@ -1,6 +1,6 @@
 package cf.vbnm.main;
 
-import cf.vbnm.gui.Constant;
+import cf.vbnm.util.Constant;
 
 import javax.swing.*;
 
